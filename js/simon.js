@@ -20,6 +20,7 @@ numbDiv.innerHTML = `MEMORIZZA QUESTI NUMERI ${randomNumb.join()}`;
 setTimeout(() => {
   // nascondo i umeri
   numbDiv.style.display = "none";
+  showInput();
 }, 30000);
 
 function showInput() {

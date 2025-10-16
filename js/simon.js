@@ -15,3 +15,15 @@ for (let i = 0; i < guessNumb; i++) {
 const numbDiv = document.getElementById("numeri");
 
 numbDiv.innerHTML = `MEMORIZZA QUESTI NUMERI ${randomNumb.join()}`;
+
+// inizio a settare il timer di 30 second
+setTimeout(() => {
+  // nascondo i umeri
+  numbDiv.style.display = "none";
+}, 30000);
+
+function showInput() {
+  const inputsDiv = document.getElementById("inputs");
+  inputsDiv.style.display = "block";
+  inputsDiv.innerHTML = "inserisci i numeri che ti ricordi";
+}

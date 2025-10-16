@@ -13,29 +13,14 @@ for (let i = 0; i < guessNumb; i++) {
 
 // prendo la classe che mi interessa dalla dom e stampo un messago per memorizzare
 const numbDiv = document.getElementById("numeri");
-numbDiv.innerHTML = `MEMORIZZA QUESTI NUMERI ${randomNumb.join()}`;
+numbDiv.innerHTML = `MEMORIZZA QUESTI NUMERI   ${randomNumb.join()}`;
 
 // inizio a settare il timer di 30 second
 setTimeout(() => {
   // nascondo i umeri
   numbDiv.style.display = "none";
-  showInput();
+  document.getElementById("inputs").style.display = "block";
 }, 5000);
-
-
-  // creo 5 i input
-  for (let i = 0; i < guessNumb; i++) {
-    const input = document.getElementById("input");
-    input.type = "number";
-    input.id = "num" + i;
-    inputsDiv.appendChild(input);
-  }
-
-  const btn = document.createElement("button");
-  btn.textContent = "Verifica Numeri";
-  btn.onclick = verNumb;
-  inputsDiv.appendChild(btn);
-}
 
 // creo la funzione per verificare i numeri
 function verNumb() {
@@ -44,6 +29,7 @@ function verNumb() {
   // ciclo for per leggere gli input
   for (let i = 0; i < guessNumb.length; i++) {
     const val = parseInt(document.getElementById("num" + i).value);
+    if (!isNaN(val)) numeriInseriti.push(val);
   }
 
   const userGuessNumb = [];
@@ -59,6 +45,12 @@ function verNumb() {
     }
   }
 
+  // mostro il risultato
   const resultEl = document.getElementById("result");
   resultEl.innerHTML = `${userGuessNumb.length} ${userGuessNumb.join}`;
+
+  const risultatoDiv = document.getElementById("risultato");
+  risultatoDiv.innerHTML = `<h2>Hai indovinato ${
+    userGuessNumb.length
+  } numeri:</h2><p>${userGuessNumb.join(", ")}</p>`;
 }

@@ -27,4 +27,16 @@ function showInput() {
   const inputsDiv = document.getElementById("inputs");
   inputsDiv.style.display = "block";
   inputsDiv.innerHTML = "inserisci i numeri che ti ricordi";
+
+  // creo 5 i input
+  for (let i = 0; i < guessNumb; i++) {
+    const input = document.getElementById("input");
+    input.type = "number";
+    input.id = "num" + i;
+    inputsDiv.appendChild(input);
+  }
+
+  const btn = document.createElement("button");
+  btn.textContent = "Verifica";
+  inputsDiv.appendChild(btn);
 }

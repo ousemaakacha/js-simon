@@ -21,7 +21,7 @@ setTimeout(() => {
   // nascondo i umeri
   numbDiv.style.display = "none";
   showInput();
-}, 30000);
+}, 5000);
 
 function showInput() {
   const inputsDiv = document.getElementById("inputs");
@@ -37,6 +37,31 @@ function showInput() {
   }
 
   const btn = document.createElement("button");
-  btn.textContent = "Verifica";
   inputsDiv.appendChild(btn);
+}
+
+// creo la funzione per verificare i numeri
+function verNumb() {
+  const userNumb = [];
+
+  // ciclo for per leggere gli input
+  for (let i = 0; i < guessNumb.length; i++) {
+    const val = parseInt(document.getElementById("num" + i).value);
+  }
+
+  const userGuessNumb = [];
+
+  // cofronto con un doppio ciclo for i numeri randon e quelli user
+
+  for (let i = 0; i < userNumb.length; i++) {
+    for (let j = 0; j < randomNumb.length; j++) {
+      if (userNumb[i] === randomNumb[j]) {
+        userGuessNumb.push(userNumb[i]);
+        break;
+      }
+    }
+  }
+
+  const resultEl = document.getElementById("result");
+  resultEl.innerHTML = (userGuessNumb.length, userGuessNumb.join);
 }
